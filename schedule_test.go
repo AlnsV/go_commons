@@ -5,7 +5,7 @@ import (
 )
 
 func TestNewIndexSchedule(t *testing.T) {
-	idx := NewIndexSchedule("http://3.18.103.89:5100/")
+	idx := NewIndexSchedule("http://172.31.46.109:5100/")
 	err := idx.UpdateSchedule()
 	if err != nil {
 		t.Log(err)
@@ -14,7 +14,7 @@ func TestNewIndexSchedule(t *testing.T) {
 	if errTwo != nil {
 		t.Log(errTwo)
 	}
-	idxTwo := NewIndexSchedule("http://3.18.103.89:5200/")
+	idxTwo := NewIndexSchedule("http://172.31.46.109:5200/")
 	err = idxTwo.UpdateSchedule()
 	if err == nil {
 		t.Log(err)
@@ -26,7 +26,7 @@ func TestNewIndexSchedule(t *testing.T) {
 }
 
 func BenchmarkIndexSchedule_UpdateSchedule(b *testing.B) {
-	idx := NewIndexSchedule("http://3.18.103.89:5100/")
+	idx := NewIndexSchedule("http://172.31.46.109:5100/")
 	for i := 0; i < b.N; i++ {
 		errTwo := idx.UpdateSchedule()
 		if errTwo == nil {
